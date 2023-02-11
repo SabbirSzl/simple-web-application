@@ -1,0 +1,60 @@
+.container{
+    width: 40%;
+}
+/* Sign Up */
+h3{
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  margin-top: 94px;
+
+}
+
+/*Name Email And PAssword Register field */
+input[type=email], input[type=password],input[type=text]
+{
+  width: 500px;
+  height: 48px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  color: white;
+  padding: 20px 35px;
+  margin: 8px 0;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 24px;
+}
+
+.registerbutton{
+    background: #2554D7;
+    margin-bottom: 80px;
+
+}
+
+/* New Customer */
+h5{
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+  font-style: normal;
+  margin-bottom: 25px;
+}
+p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: rgb(0,0,0,0.5);
+
+}
+
