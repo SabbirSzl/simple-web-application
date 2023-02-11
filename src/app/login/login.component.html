@@ -8,14 +8,14 @@
       <br><br>
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="***********" name="psw"><br><br>
-      <button type="submit" class="loginbutton">Login</button><span class="psw"><a href="#">Forgot your password?</a></span>
+      <button type="submit" class="loginbutton" (click)="logInFunction()">Login</button><span class="psw"><a href="#">Forgot your password?</a></span>
 
       <h5>New Customer?</h5>
 
       <p>
         Sign up for an account to take advantage of order tracking and history as well as pre-filled forms during checkout on subsequent orders.
       </p>
-      <button type="submit" class="registerbutton">Register</button>
+      <button type="submit" class="registerbutton" routerLink="/registration">Register</button>
       
     </div>
     </div>
