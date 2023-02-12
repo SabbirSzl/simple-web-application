@@ -1,23 +1,55 @@
-<form action="" method="">
-  <div class="row">
-  
-    <div class="container">
-      <h3>Log in</h3><br><br>
-      <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="your@email.com" name="email">
-      <br><br>
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="***********" name="psw"><br><br>
-      <button type="submit" class="loginbutton" (click)="logInFunction()">Login</button><span class="psw"><a href="#">Forgot your password?</a></span>
+<form action="" method="" [formGroup]="loginForm">
+  <div class="form-row row">
 
-      <h5>New Customer?</h5>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>Log In</h3>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center mb-3 pt-3">
+        <div class="col-4">
+          <label for="email" class="form-label"><b>Email</b></label>
+          <input formControlName="email" type="email" class="form-control" placeholder="your@email.com" name="email">
+          <div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
+            <span *ngIf="loginForm.controls['email'].errors['required']">This field is mandatory.</span>
+            <span *ngIf="loginForm.controls['email'].errors['email']">This field is invalid.</span>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center mb-3 pt-3">
+        <div class="col-4">
+          <label for="password" class="form-label"><b>Password</b></label>
+          <input formControlName="password" type="password" class="form-control" placeholder="***********" name="password">
+          <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
+            <span *ngIf="loginForm.controls['password'].errors['required']">This field is mandatory.</span>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center pt-4">
+        <div class="col-4">
+          <button type="button" (click)="logInFunction()" class="loginbutton"  [disabled]="!loginForm.valid">LOGIN</button>
+
+          <span class="psw"><a href="#">Forgot your password?</a></span>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center pt-3">
+        <div class="col-4">
+          <h5>New Customer?</h5>
 
       <p>
         Sign up for an account to take advantage of order tracking and history as well as pre-filled forms during checkout on subsequent orders.
       </p>
+        </div>
+      </div>
+
+      <div class="row d-flex align-items-center justify-content-center mb-3 pb-5">
+        <div class="col-4">
       <button type="submit" class="registerbutton" routerLink="/registration">Register</button>
-      
+        </div>
+      </div>
     </div>
-    </div>
-  </form>
+  </div>
+</form>
+
   
