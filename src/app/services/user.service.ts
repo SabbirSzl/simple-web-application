@@ -13,11 +13,12 @@ export class UserService {
 
   apiUrl = 'http://localhost:8080/user';
 
+  //get all the data
   getAllData():Observable<any>{
-  return this._http.get(`${this.apiUrl}`);
+  return this._http.get(`${this.apiUrl}/profile`);
   }
-
+// REgister new user
   registerNewUser(data: any): Observable<any>{
-    return this._http.post(`${this.apiUrl}`, data);
+    return this._http.post(`${this.apiUrl}/registration`, data);
   }
 }

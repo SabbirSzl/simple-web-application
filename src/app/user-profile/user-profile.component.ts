@@ -21,7 +21,7 @@ ngOnInit():void{
 
 getAllUsers(){
   this.userservice.getAllData().subscribe((res)=> {
-    this.users = res.data;
+    this.users = res;
   });
   console.log(this.users);
 }
