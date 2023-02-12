@@ -20,7 +20,8 @@
       <div class="row d-flex align-items-center justify-content-center mb-3 pt-3">
         <div class="col-4">
           <label for="password" class="form-label"><b>Password</b></label>
-          <input formControlName="password" type="password" class="form-control" placeholder="***********" name="password">
+          <input formControlName="password" type="password" class="form-control" placeholder="***********"
+            name="password">
           <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
             <span *ngIf="loginForm.controls['password'].errors['required']">This field is mandatory.</span>
           </div>
@@ -28,7 +29,8 @@
       </div>
       <div class="row d-flex align-items-center justify-content-center pt-4">
         <div class="col-4">
-          <button type="button" (click)="logInFunction()" class="loginbutton"  [disabled]="!loginForm.valid">LOGIN</button>
+          <button type="button" (click)="logInFunction()" class="loginbutton"
+            [disabled]="!loginForm.valid">LOGIN</button>
 
           <span class="psw"><a href="#">Forgot your password?</a></span>
         </div>
@@ -37,19 +39,18 @@
         <div class="col-4">
           <h5>New Customer?</h5>
 
-      <p>
-        Sign up for an account to take advantage of order tracking and history as well as pre-filled forms during checkout on subsequent orders.
-      </p>
+          <p>
+            Sign up for an account to take advantage of order tracking and history as well as pre-filled forms during
+            checkout on subsequent orders.
+          </p>
         </div>
       </div>
 
       <div class="row d-flex align-items-center justify-content-center mb-3 pb-5">
         <div class="col-4">
-      <button type="submit" class="registerbutton" routerLink="/registration">Register</button>
+          <button type="submit" class="registerbutton" routerLink="/registration">Register</button>
         </div>
       </div>
     </div>
   </div>
 </form>
-
-  
