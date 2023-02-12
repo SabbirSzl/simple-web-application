@@ -1,23 +1,55 @@
-<form action="" method="">
-    <div class="row">
-    
-      <div class="container">
-        <h3>Sign up</h3><br><br>
-        <label for="fname"><b>First name</b></label>
-        <input type="text" placeholder="Enter your first name" name="fname">
-        <br><br>
-        <label for="lname"><b>Last name</b></label>
-        <input type="text" placeholder="Enter your last name" name="lname">
-        <br><br>
-        <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="your@email.com" name="email">
-      <br><br>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="***********" name="psw"><br><br>
-        <button type="submit" class="registerbutton" (click)="registrationClick()">REGISTER</button>
-        
+<form action="" method="" [formGroup]="registrationForm">
+  <div class="form-row row">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3>Sign up</h3>
+        </div>
       </div>
+      <div class="row d-flex align-items-center justify-content-center mb-3">
+        <div class="col-4">
+          <label for="firstname"  class="form-label"><b>First name</b></label>
+          <input formControlName="firstname" type="text" class="form-control" 
+            placeholder="Enter your first name" name="firstname">
+          <div *ngIf="registrationForm.controls['firstname'].touched && registrationForm.controls['firstname'].invalid" class="mt-1">
+            <span *ngIf="registrationForm.controls['firstname'].errors['required']" class="text-danger" >This field is mandatory.</span>
+          </div>
+        </div>
       </div>
-    </form>
-    
-  
+      <div class="row d-flex align-items-center justify-content-center mb-3 pt-3">
+        <div class="col-4">
+          <label for="lastname"  class="form-label"><b>Last name</b></label>
+          <input formControlName="lastname" type="text" class="form-control"  placeholder="Enter your last name" name="lastname">
+          <div *ngIf="registrationForm.controls['lastname'].touched && registrationForm.controls['lastname'].invalid">
+            <span *ngIf="registrationForm.controls['lastname'].errors['required']">This field is mandatory.</span>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center mb-3 pt-3">
+        <div class="col-4">
+          <label for="email" class="form-label"><b>Email</b></label>
+          <input formControlName="email" type="email" class="form-control" placeholder="your@email.com" name="email">
+          <div *ngIf="registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid">
+            <span *ngIf="registrationForm.controls['email'].errors['required']">This field is mandatory.</span>
+            <span *ngIf="registrationForm.controls['email'].errors['email']">This field is invalid.</span>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center mb-3 pt-3">
+        <div class="col-4">
+          <label for="password" class="form-label"><b>Password</b></label>
+          <input formControlName="password" type="password" class="form-control" placeholder="***********" name="password">
+          <div *ngIf="registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid">
+            <span *ngIf="registrationForm.controls['password'].errors['required']">This field is mandatory.</span>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-center pt-4">
+        <div class="col-4">
+          <button type="button" (click)="registrationClick()" class="registerbutton"  [disabled]="!registrationForm.valid">REGISTER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
