@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class UserProfileComponent {
 
   users: any;
 
-constructor( private userservice: UserService){
+constructor( private userservice: UserService, private route: Router){
 
 }
 
@@ -21,6 +22,7 @@ ngOnInit():void{
 getAllUsers(){
   this.userservice.getAllData().subscribe((res)=> {
     this.users = res.data;
-  })
+  });
+  console.log(this.users);
 }
 }

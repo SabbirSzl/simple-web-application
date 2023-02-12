@@ -16,4 +16,8 @@ export class UserService {
   getAllData():Observable<any>{
   return this._http.get(`${this.apiUrl}`);
   }
+
+  registerNewUser(data: any): Observable<any>{
+    return this._http.post(`${this.apiUrl}`, data);
+  }
 }

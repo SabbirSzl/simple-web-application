@@ -12,8 +12,6 @@ export class RegistrationComponent {
 
   registrationForm:any = FormGroup;
   responseMessage:any;
-
-  
   users: any;
 
 
@@ -34,11 +32,12 @@ ngOnInit():void{
     password:[null,[Validators.required]]
   })
 }
-  registrationClick()
-  {
-    var formData = this.registrationForm.value;
-    var data = {
-    }
-  }
+
+registrationClick(){}
+
+
+
+
 
 }
+
