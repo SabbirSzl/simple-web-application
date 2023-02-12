@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, observable } from 'rxjs';
 //import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -7,16 +8,12 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  //url = environment.apiUrl;
 
+  constructor( private _http: HttpClient) { }
 
-  constructor( private httpclient: HttpClient) { }
+  apiUrl = 'http://localhost:8080/user';
 
-
-  registration(data:any){
-    /*return this.httpclient.post(this.url+"/user/registration",data,
-    {
-      headers: new HttpHeaders().set('Content-Type',"application/json")
-    })*/
+  getAllData():Observable<any>{
+  return this._http.get(`${this.apiUrl}`);
   }
 }

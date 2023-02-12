@@ -13,23 +13,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>global</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>International</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>Indian</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+              <tr *ngFor = "let u of users">
+                <td>u.firstname</td>
+                <td>u.lastname</td>
+                <td>u.email</td>
+                <td>u.password</td>
               </tr>
             </tbody>
           </table>

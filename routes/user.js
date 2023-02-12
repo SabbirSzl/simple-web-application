@@ -55,8 +55,8 @@ router.post('/login', (req, res) => {
 })
 
 //fetchdata
-router.get('/get', (req, res) => {
-    var query = "select firstname,lastname,email,password from user where firstname='Admin'";
+router.get('/profile', (req, res) => {
+    var query = "select firstname,lastname,email,password from user";
     connection.query(query, (err, results) => {
         if (!err) {
             return res.status(200).json(results);

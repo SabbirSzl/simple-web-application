@@ -13,6 +13,11 @@ export class RegistrationComponent {
   registrationForm:any = FormGroup;
   responseMessage:any;
 
+  
+  users: any;
+
+
+
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
