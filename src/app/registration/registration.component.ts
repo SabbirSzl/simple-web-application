@@ -1,24 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+
+
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit{
 
+  //user: User = new User();
   registrationForm:any = FormGroup;
-  responseMessage:any;
+  errormsg:any;
+  successmsg:any;
   users: any;
-
-
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: Router,
+    private activateRouter: ActivatedRoute,
+    private router: Router,
     private userservice: UserService
   )
   {
@@ -26,14 +29,26 @@ export class RegistrationComponent {
   }
 ngOnInit():void{
   this.registrationForm = this.formBuilder.group({
-    firstname:[null,[Validators.required]],
-    lastname:[null,[Validators.required]],
-    email:[null,[Validators.required]],
-    password:[null,[Validators.required]]
-  })
+    firstname:['',Validators.required],
+    lastname:['',Validators.required],
+    email:['',[Validators.required, Validators.email]],
+    password:['',Validators.required],
+  });
 }
 
-registrationClick(){}
+registrationClick(){
+  if (!this.registrationForm.valid){
+    return;
+  }
+  if(this.registrationForm.valid){
+    this.userservice.registerNewUser(this.registrationForm.value).subscribe((res)=>{
+      console.log(res,'Registered');
+      this.registrationForm.reset();
+      this.successmsg = res.message;
+      alert('Registered suceess');
+    })
+  }
+}
 
 
 
