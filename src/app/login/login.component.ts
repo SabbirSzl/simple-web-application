@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.value.email == 'admin@gmail.com') {
         this.userservice.loginUser(this.loginForm.value).subscribe((res) => {
           console.log(res, 'Logged In as Admin');
+          sessionStorage.setItem('isUserLoggedIn', JSON.stringify(true));
           //this.loginForm.reset();
           this.router.navigate(['profile']);
         })
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
       else {
         this.userservice.loginUser(this.loginForm.value).subscribe((res) => {
           console.log(res,'Logged In');
+          sessionStorage.setItem('isUserLoggedIn', JSON.stringify(false));
           //this.loginForm.reset();
           this.router.navigate(['home']);
         })
