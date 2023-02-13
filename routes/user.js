@@ -3,6 +3,7 @@ const connection = require('../connection');
 const router = express.Router();
 const { query } = require('express');
 
+
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
@@ -71,3 +72,4 @@ router.get('/profile', (req, res) => {
 
 
 module.exports = router;
+
