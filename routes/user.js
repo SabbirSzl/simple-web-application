@@ -3,6 +3,7 @@ const connection = require('../connection');
 const router = express.Router();
 const { query } = require('express');
 
+
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
@@ -55,8 +56,8 @@ router.post('/login', (req, res) => {
 })
 
 //fetchdata
-router.get('/get', (req, res) => {
-    var query = "select firstname,lastname,email,password from user where firstname='Admin'";
+router.get('/profile', (req, res) => {
+    var query = "select firstname,lastname,email,password from user";
     connection.query(query, (err, results) => {
         if (!err) {
             return res.status(200).json(results);
@@ -71,3 +72,4 @@ router.get('/get', (req, res) => {
 
 
 module.exports = router;
+

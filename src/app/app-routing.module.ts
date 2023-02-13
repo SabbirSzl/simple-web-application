@@ -4,6 +4,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AuthGuard } from './services/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'profile', component: UserProfileComponent
+    path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard]
   },
   {
     path: 'forgotpassword', component: ForgotpasswordComponent
